@@ -5,6 +5,7 @@ import java.io.PrintWriter;
   
 import javax.servlet.ServletException;  
 import javax.servlet.http.HttpServlet;  
+import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;  
 import javax.servlet.http.HttpServletResponse;  
   
@@ -23,6 +24,10 @@ public class HelloWorldServlet extends HttpServlet {
   
     private void process(HttpServletRequest request,  
             HttpServletResponse response) throws ServletException, IOException {  
+	ServletContext context = getServletContext();
+	final int mainVer = context.getMajorVersion();
+	final int minVer = context.getMinorVersion();
+	String version = Integer.toString(mainVer) + "." + Integer.toString(minVer);
         response.setContentType("text/html;charset=utf-8");  
         response.setCharacterEncoding("utf-8");  
         PrintWriter out = response.getWriter();  
@@ -33,7 +38,7 @@ public class HelloWorldServlet extends HttpServlet {
         out.println("<meta http-equiv=\"Content-Type\" content=\"text/html;charset=utf-8\" />");  
         out.println("<title>" + title + "</title>");  
         out.println("<body>");  
-        out.println("<h1>Hello World!</h1>");  
+        out.println("<h1>Hello, Servlet " + version + " World!</h1>");  
         out.println("</body>");  
         out.println("</html>");  
     }  

@@ -26,10 +26,10 @@ In order to source code is compiled successfully, the dependency is key point.
                 </dependency>  
  
 Meanwhile, `"provided"` can avoid these jar files to be packaged into war file.    
-In addition, some plugs are essential.    
+In addition, some plugins are essential.    
 __maven-war-plugin__ will define "main" class in _MANIFEST.MF_.    
 __maven-antrun-plugin__ will move the "main" class to the root path of war file.  
-__maven-dependency-plugin__ will decompress the dependency jar.  
+__maven-dependency-plugin__ will decompress the dependency jar files.  
 
 After perform "run"->"run as"->"maven install" in Eclipse, the `jettyExam.war` can be found in the target fold.   
 now we can run `java -jar -Dport=10080 jettyExam.war` and check the result via browsing `http://localhost:10080`    

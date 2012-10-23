@@ -14,18 +14,36 @@ In order to source code is compiled successfully, the dependency is key point.
 
                 <dependency>  
                   <groupId>org.eclipse.jetty</groupId>  
-                	<artifactId>jetty-server</artifactId>  
-                	<version>${jettyVersion}</version>  
-                	<scope>provided</scope>  
+                  <artifactId>jetty-server</artifactId>  
+                  <version>${jettyVersion}</version>  
+                  <scope>provided</scope>  
                 </dependency>  
                 <dependency>  
-                	<groupId>org.eclipse.jetty</groupId>  
-                	<artifactId>jetty-webapp</artifactId>  
-                	<version>${jettyVersion}</version>  
-                	<scope>provided</scope>  
+                  <groupId>org.eclipse.jetty</groupId>  
+                  <artifactId>jetty-webapp</artifactId>  
+                  <version>${jettyVersion}</version>  
+                  <scope>provided</scope>  
                 </dependency>  
  
 Meanwhile, `"provided"` can avoid these jar files to be packaged into war file.    
+
+If JSP need be supported, the following dependency should be contained:    
+
+               <dependency>
+                 <groupId>org.eclipse.jetty.orbit</groupId>
+                 <artifactId>org.apache.jasper.glassfish</artifactId>
+                 <version>2.2.2.v201112011158</version>
+                 <scope>provided</scope>
+               </dependency>
+               <dependency>
+                 <groupId>org.eclipse.jetty.orbit</groupId>
+                 <artifactId>javax.el</artifactId>
+                 <version>2.2.0.v201108011116</version>
+                 <scope>provided</scope>
+               </dependency>
+The war file would increase 800KB size, if JSP dependency is contained.     
+So it suggest to comment the JSP dependency.    
+
 In addition, some plugins are essential.    
 __maven-war-plugin__ will define "main" class in _MANIFEST.MF_.    
 __maven-antrun-plugin__ will move the "main" class to the root path of war file.  

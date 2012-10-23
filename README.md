@@ -50,7 +50,7 @@ __maven-antrun-plugin__ will move the "main" class to the root path of war file.
 __maven-dependency-plugin__ will decompress the dependency jar files.  
 
 After perform "run"->"run as"->"maven install" in Eclipse, the `jettyExam.war` can be found in the target fold.   
-now we can run `java -jar -Dport=10080 jettyExam.war` and check the result via browsing `http://localhost:10080`    
+now we can run `java -jar -Dport=10080 jettyExam.war` and check the result via browsing `http://localhost:10080/` and `http://localhost:10080/helloworld`    
 
 reference:    
 [Step by step: Executable WAR files](http://internna.blogspot.com/2011/08/step-by-step-executable-war-files.html)    
